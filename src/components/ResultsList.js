@@ -1,9 +1,11 @@
 import React from "react";
 import ResultsItem from "./ResultsItem";
 
+import styles from "./ResultsList.module.css";
+
 const ResultsList = (props) => {
   return (
-    <table className="result">
+    <table className={styles.result}>
       <thead>
         <tr>
           <th>Year</th>
