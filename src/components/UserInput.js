@@ -13,8 +13,13 @@ const UserInput = (props) => {
     setInputData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    props.onSubmitForm(inputData);
+  };
+
   return (
-    <form className="form" onSubmit={props.onSubmitForm}>
+    <form className="form" onSubmit={submitFormHandler}>
       <div className="input-group">
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>

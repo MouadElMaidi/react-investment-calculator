@@ -1,13 +1,21 @@
 import React from "react";
 
-const ResultsItem = () => {
+const ResultsItem = (props) => {
+  const {
+    year,
+    savingsEndOfYear,
+    yearlyInterest,
+    totalInterest,
+    investedCapital,
+  } = props.yearData;
+
   return (
     <tr>
-      <td>YEAR NUMBER</td>
-      <td>TOTAL SAVINGS END OF YEAR</td>
-      <td>INTEREST GAINED IN YEAR</td>
-      <td>TOTAL INTEREST GAINED</td>
-      <td>TOTAL INVESTED CAPITAL</td>
+      <td>{year}</td>
+      <td>${savingsEndOfYear.toFixed(2)}</td>
+      <td>${yearlyInterest.toFixed(2)}</td>
+      <td>${totalInterest.toFixed(2)}</td>
+      <td>${investedCapital.toFixed(2)}</td>
     </tr>
   );
 };

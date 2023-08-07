@@ -1,7 +1,7 @@
 import React from "react";
 import ResultsItem from "./ResultsItem";
 
-const ResultsList = () => {
+const ResultsList = (props) => {
   return (
     <table className="result">
       <thead>
@@ -14,7 +14,9 @@ const ResultsList = () => {
         </tr>
       </thead>
       <tbody>
-        <ResultsItem />
+        {props.data.map((yearData, index) => (
+          <ResultsItem yearData={yearData} key={index} />
+        ))}
       </tbody>
     </table>
   );
