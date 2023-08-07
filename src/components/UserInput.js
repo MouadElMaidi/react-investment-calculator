@@ -12,7 +12,7 @@ const UserInput = (props) => {
 
   const inputChangeHandler = (event) => {
     const { name, value } = event.target;
-    setInputData((prevData) => ({ ...prevData, [name]: value }));
+    setInputData((prevData) => ({ ...prevData, [name]: +value }));
   };
 
   const submitFormHandler = (event) => {
