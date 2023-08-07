@@ -20,6 +20,16 @@ const UserInput = (props) => {
     props.onSubmitForm(inputData);
   };
 
+  const resetHandler = () => {
+    props.onResetData();
+    setInputData({
+      currentSavings: "",
+      yearlySavings: "",
+      expectedInterest: "",
+      investmentDuration: "",
+    });
+  };
+
   return (
     <form className={styles.form} onSubmit={submitFormHandler}>
       <div className={styles["input-group"]}>
@@ -72,7 +82,7 @@ const UserInput = (props) => {
         <button
           type="reset"
           className={styles.buttonAlt}
-          onClick={props.onResetData}
+          onClick={resetHandler}
         >
           Reset
         </button>
