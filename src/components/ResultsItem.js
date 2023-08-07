@@ -9,13 +9,20 @@ const ResultsItem = (props) => {
     investedCapital,
   } = props.yearData;
 
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <tr>
       <td>{year}</td>
-      <td>${savingsEndOfYear.toFixed(2)}</td>
-      <td>${yearlyInterest.toFixed(2)}</td>
-      <td>${totalInterest.toFixed(2)}</td>
-      <td>${investedCapital.toFixed(2)}</td>
+      <td>{formatter.format(savingsEndOfYear)}</td>
+      <td>{formatter.format(yearlyInterest)}</td>
+      <td>{formatter.format(totalInterest)}</td>
+      <td>{formatter.format(investedCapital)}</td>
     </tr>
   );
 };

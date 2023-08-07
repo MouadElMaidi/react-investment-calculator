@@ -7,6 +7,17 @@ import UserInput from "./components/UserInput";
 function App() {
   const [results, setResults] = useState([]);
 
+  const parsedResult = results.map((element, index) => {
+    if (index === 0) {
+      element.totalInterest = element.yearlyInterest;
+    } else {
+      element.totalInterest =
+        results[index - 1].totalInterest + element.yearlyInterest;
+    }
+    element.investedCapital = element.savingsEndOfYear - element.totalInterest;
+    return element;
+  });
+
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
@@ -29,14 +40,6 @@ function App() {
         savingsEndOfYear: currentSavings,
         yearlyContribution: yearlyContribution,
       });
-      if (i === 0) {
-        yearlyData[0].totalInterest = yearlyData[0].yearlyInterest;
-      } else {
-        yearlyData[i].totalInterest =
-          yearlyData[i - 1].totalInterest + yearlyData[i].yearlyInterest;
-      }
-      yearlyData[i].investedCapital =
-        yearlyData[i].savingsEndOfYear - yearlyData[i].totalInterest;
     }
 
     // do something with yearlyData ...
@@ -49,7 +52,7 @@ function App() {
   };
 
   const resetHandler = () => {
-    console.log("Reset Form");
+    setResults([]);
   };
 
   return (
@@ -67,7 +70,7 @@ function App() {
       {results.length === 0 ? (
         <p className="header">No investment calculated yet</p>
       ) : (
-        <ResultsList data={results} />
+        <ResultsList data={parsedResult} />
       )}
     </div>
   );
