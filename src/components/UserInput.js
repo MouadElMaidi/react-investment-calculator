@@ -4,10 +4,10 @@ import styles from "./UserInput.module.css";
 
 const UserInput = (props) => {
   const [inputData, setInputData] = useState({
-    currentSavings: "",
-    yearlySavings: "",
-    expectedInterest: "",
-    investmentDuration: "",
+    currentSavings: 10000,
+    yearlySavings: 1200,
+    expectedInterest: 5,
+    investmentDuration: 15,
   });
 
   const inputChangeHandler = (event) => {
