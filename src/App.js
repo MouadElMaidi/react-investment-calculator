@@ -30,6 +30,16 @@ function App() {
     // do something with yearlyData ...
   };
 
+  //Event Handlers
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+  };
+
+  const resetHandler = () => {
+    console.log("Reset Form");
+  };
+
   return (
     <div>
       <header className="header">
@@ -37,7 +47,7 @@ function App() {
         <h1>Investment Calculator</h1>
       </header>
 
-      <UserInput />
+      <UserInput onSubmitForm={submitHandler} onResetData={resetHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
